@@ -1,0 +1,20 @@
+{
+    "Usuarios": {
+        "userName":"standard_user",
+        "password": "secret_sauce"
+    },
+
+    "errores_usuario": {
+
+        "userName": "st@andard_user",
+        "password": "secret_sauce"
+    },
+
+    "Usuario_erroneo": {
+
+        "userName": "st@andard_user",
+        "password": "secret_sauce"
+    }
+
+
+}

@@ -11,7 +11,7 @@ export class LoginPage {
         this.page = page;
         this.userName = page.locator('input[name="user-name"]');
         this.password = page.locator('input[name="password"]');
-        this.btnLogin = page.locator('#login-button');
+        this.btnLogin = page.locator('[data-test="login-button"]');
     }
 
     async irPaginaLogin () {
@@ -24,7 +24,6 @@ export class LoginPage {
     }
 
     async hacerClickBotonLogin(){
-        await expect(this.btnLogin).toBeVisible();
         await this.btnLogin.click();
     }
 }

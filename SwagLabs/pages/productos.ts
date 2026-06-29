@@ -3,6 +3,7 @@ import {expect, Locator, Page} from "@playwright/test";
 export class Productos {
 
     readonly page: Page;
+    readonly pageTitle: Locator
     readonly BTNBagPack: Locator;
     readonly BTNBagPack02: Locator;
     readonly BTNBike: Locator;
@@ -15,6 +16,7 @@ export class Productos {
 
     constructor(page: Page) {
         this.page = page;
+        this.pageTitle = page.locator('[data-test="title"]');
         this.BTNBagPack = page.locator('[data-test="add-to-cart-sauce-labs-backpack"]');
         this.BTNBagPack02 = page.locator('[data-test="remove-sauce-labs-backpack"]');
         this.BTNBike = page.locator('[data-test="add-to-cart-sauce-labs-bike-light"]');

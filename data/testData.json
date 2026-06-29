@@ -14,7 +14,12 @@
 
         "userName": "st@andard_user",
         "password": "secret_sauce"
-    }
+    },
 
+    "datos_envio": {
+        "nombre": "Ignacio",
+        "apellido": "Salim",
+        "zipCode": "5000"
+    }
 
 }

@@ -29,29 +29,31 @@ test('TC-4 Validar que el bagpack ha sido seleccionado', async ({page}) => {
 });
 
 test('TC-5 Validar que el bagpack se haya agregado al carrito de compras', async ({page}) => {
-    test.step('Agregar el item al carrito de compras', async () => {
+    await test.step('Agregar el item al carrito de compras', async () => {
         await producto.agregarBagPack();    
     });
-    test.step('Validar que el contador sea "1"', async () => {
+    await test.step('Validar que el contador sea "1"', async () => {
         await expect(producto.BTNCart).toBeVisible();
         await expect(producto.itemCounter).toHaveText('1');
     });
-    test.step('Validar que el producto esté en el carrito de compras', async () => {
+    await test.step('Validar que el producto esté en el carrito de compras', async () => {
         await producto.verCarritoCompras();
         await expect(carritoCompras.cartPageTitle).toBeVisible();
+        await expect(carritoCompras.cartPageTitle).toHaveText('Your Cart');
         await expect(carritoCompras.bagPackTitle).toBeVisible();
+        await expect(carritoCompras.bagPackTitle).toHaveText('Sauce Labs Backpack');
     });
 });
 
 test('TC-6 Validar el la bike se hay agregado al carrito de compras', async ({page}) => {
-    test.step('Agregar el item al carrito de compras', async () => {
+    await test.step('Agregar el item al carrito de compras', async () => {
         await producto.agregarBike();
     });
-    test.step('Validar que el contador sea "1"', async () => {
+    await test.step('Validar que el contador sea "1"', async () => {
         await expect(producto.BTNCart).toBeVisible();
         await expect(producto.itemCounter).toHaveText('1');
     });
-    test.step('Validar que el producto esté en el carrito de compras', async () => {
+    await test.step('Validar que el producto esté en el carrito de compras', async () => {
         await producto.verCarritoCompras();
         await expect(carritoCompras.cartPageTitle).toBeVisible();
         await expect(carritoCompras.bikeTitle).toBeVisible();

@@ -1,0 +1,22 @@
+const { chromium } = require('playwright');
+(async () => {
+  const browser = await chromium.launch({ headless: true });
+  const page = await browser.newPage();
+  await page.goto('https://www.saucedemo.com/');
+  await page.fill('[data-test="username"]', 'standard_user');
+  await page.fill('[data-test="password"]', 'secret_sauce');
+  await page.click('[data-test="login-button"]');
+  console.log('after login url:', page.url());
+  console.log('page title:', await page.textContent('[data-test="title"]'));
+  await page.click('[data-test="add-to-cart-sauce-labs-backpack"]');
+  await page.click('[data-test="shopping-cart-link"]');
+  console.log('after cart open url:', page.url());
+  console.log('cart title:', await page.textContent('[data-test="title"]'));
+  console.log('checkout count:', await page.locator('[data-test="checkout"]').count());
+  console.log('checkout visible:', await page.locator('[data-test="checkout"]').isVisible());
+  await page.click('[data-test="checkout"]');
+  await page.waitForLoadState('networkidle');
+  console.log('after click checkout url:', page.url());
+  console.log('after click checkout title:', await page.textContent('[data-test="title"]'));
+  await browser.close();
+})();
